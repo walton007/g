@@ -56,7 +56,9 @@
     "lint": "eslint ./",
     "lint-fix": "eslint --fix ./",
     "test": "torch --compile --renderer --recursive ./test/unit",
-    "test-live": "torch --compile --renderer --interactive --recursive ./test/"
+    "test-live": "torch --compile --renderer --interactive --recursive ./test/",
+    "pixel-test": "electron ./test/pixel",
+    "pixel-test-screenshot":  "electron --screenshot ./test/pixel"
   },
   "pre-commit": {
     "run": [
