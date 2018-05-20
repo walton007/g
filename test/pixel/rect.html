@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+  <div id="c1"></div>
+  <script>
+    // rect means which area you'd like to draw your shapes
+    // this area will be captured
+    const rect = {
+      x: 0, y:0, width: 400, height: 400
+    };
+    const G = require('../../src/index');
+    const canvas = new G.Canvas({
+      containerId: 'c1',
+      width: rect.width,
+      height: rect.height
+    });
+
+    const group = canvas.addGroup();
+    const shape = group.addShape('rect', {
+      attrs: {
+        x: 10,
+        y: 10,
+        width: 350,
+        height: 350,
+        stroke: 'black',
+        radius: 2
+      }
+    });
+    
+    canvas.draw();
+
+    // you may sendReadySignal or later after some action
+    setTimeout(window.sendReadySignal.bind(null, rect), 1000);
+    // window.sendReadySignal();
+  </script>
+</body>
+</html>
