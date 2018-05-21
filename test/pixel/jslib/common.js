@@ -58,7 +58,6 @@ function createBrowserWindowForJobs(jobs) {
     job.winId = win.id;
     // win.webContents.openDevTools();
   });
-  
 }
 
 module.exports = {

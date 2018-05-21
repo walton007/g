@@ -8,7 +8,6 @@ const {
 const {
   getJobsByScanHtmls,
   capturePage,
-  saveFile,
   createBrowserWindowForJobs
 } = require('./common');
 
@@ -81,7 +80,7 @@ function jobDone(jobs, job, result) {
 function onAppReady() {
   const jobs = getJobsByScanHtmls();
 
-  ipcMain.on('draw-done', (event, {winId, rect}) => {
+  ipcMain.on('draw-done', (event, { winId, rect }) => {
     const win = BrowserWindow.fromId(winId);
     const job = jobs.find(job => job.winId === winId);
     compareCapturePageWithImgFile(win, rect, job.dstImgPath, jobDone.bind(null, jobs, job));

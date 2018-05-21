@@ -3,9 +3,9 @@ const { ipcRenderer, remote } = require('electron');
 
 const curWinId = remote.getCurrentWindow().id;
 
-window.sendReadySignal = (rect) => {
+window.sendReadySignal = rect => {
   const msg = {
-    winId:curWinId,
+    winId: curWinId,
     rect
   };
 

@@ -33,12 +33,11 @@ function jobDone(jobs, job) {
 function onAppReady() {
   const jobs = getJobsByScanHtmls();
 
-  ipcMain.on('draw-done', (event, {winId, rect}) => {
+  ipcMain.on('draw-done', (event, { winId, rect }) => {
     const win = BrowserWindow.fromId(winId);
     const job = jobs.find(job => job.winId === winId);
     capturePageToFile(win, rect, job.dstImgPath, jobDone.bind(null, jobs, job));
   });
-  
   createBrowserWindowForJobs(jobs);
 }
 
