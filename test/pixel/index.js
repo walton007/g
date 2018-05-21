@@ -1,6 +1,6 @@
 const doScreenshot = process.argv.indexOf('--screenshot');
 if (doScreenshot >= 0) {
-  require('./lib/screenshot');
+  require('./jslib/screenshot');
 } else {
-  require('./lib/screenshot_verify');
+  require('./jslib/screenshot_verify');
 }
